@@ -32,7 +32,7 @@ public class Driver {
             We will read our browserType from configuration.properties file.
             This way, we can control which browser is opened from outside our code.
              */
-            String browserType = System.getProperty("browser") != null ? System.getProperty("browser") : ConfigurationReader.getProperty("browser");
+            String browserType = ConfigurationReader.getProperty("browser");
 
             /*
             Depending on the browserType returned from the configuration.properties

@@ -16,4 +16,14 @@ public class LoginPage extends BasePage{
 
     @FindBy(xpath = "//*[text()=' Logged in as ']")
     public WebElement profileIcon;
+
+    //p[text()='Your email or password is incorrect!']
+    @FindBy(xpath = "//p[text()='Your email or password is incorrect!']")
+    public WebElement incorrectCredentialsMsg;
+
+    public void login(String email, String password){
+        emailInputField.sendKeys(email);
+        passwordInputField.sendKeys(password);
+        loginBtn.click();
+    }
 }

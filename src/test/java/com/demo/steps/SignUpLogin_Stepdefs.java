@@ -84,5 +84,4 @@ public class SignUpLogin_Stepdefs {
         Assert.assertTrue(signUpLoginPage.accountDeletedMsg.isDisplayed());
     }
 
-
 }

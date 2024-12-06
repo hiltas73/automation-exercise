@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Random;
 
 public class SignUpLoginPage extends BasePage{
 
@@ -91,8 +92,20 @@ public class SignUpLoginPage extends BasePage{
     @FindBy(xpath = "//a[@data-qa='continue-button']")
     public WebElement continueBtn;
 
+    @FindBy(xpath = "//*[text()=' Logged in as ']")
+    public WebElement profileIcon;
+
+    @FindBy(xpath = "//a[contains(text(),'Delete Account')]")
+    public WebElement deleteAccountLink;
+
+    //h2[@data-qa='account-deleted']
+    @FindBy(xpath = "//h2[@data-qa='account-deleted']")
+    public WebElement accountDeletedMsg;
+
     public void createAccount(){
         Faker faker = new Faker();
+        Random random = new Random();
+
         genderMrBtn.click();
         customerNameBtn.clear();
         customerNameBtn.sendKeys(faker.name().firstName());
@@ -102,16 +115,16 @@ public class SignUpLoginPage extends BasePage{
         BrowserUtils.waitFor(2);
 
         Select selectDays = new Select(Driver.getDriver().findElement(By.id("days")));
-        selectDays.selectByIndex(10);
-        System.out.println("daysDropdown.size() = " + daysDropdown.size());
+        selectDays.selectByIndex(random.nextInt(1,31));
+
         BrowserUtils.waitFor(2);
 
         Select selectMonths = new Select(Driver.getDriver().findElement(By.id("months")));
-        selectMonths.selectByIndex(10);
+        selectMonths.selectByIndex(random.nextInt(1,12));
         BrowserUtils.waitFor(2);
 
         Select selectYears = new Select(Driver.getDriver().findElement(By.id("years")));
-        selectYears.selectByIndex(10);
+        selectYears.selectByIndex(random.nextInt(1,121));
         BrowserUtils.waitFor(2);
 
         newsletterChkbox.click();

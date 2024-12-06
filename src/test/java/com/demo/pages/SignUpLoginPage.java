@@ -102,6 +102,7 @@ public class SignUpLoginPage extends BasePage{
     @FindBy(xpath = "//h2[@data-qa='account-deleted']")
     public WebElement accountDeletedMsg;
 
+
     public void createAccount(){
         Faker faker = new Faker();
         Random random = new Random();
@@ -112,20 +113,14 @@ public class SignUpLoginPage extends BasePage{
         passwordBtn.clear();
         passwordBtn.sendKeys(faker.internet().password());
 
-        BrowserUtils.waitFor(2);
-
         Select selectDays = new Select(Driver.getDriver().findElement(By.id("days")));
         selectDays.selectByIndex(random.nextInt(1,31));
 
-        BrowserUtils.waitFor(2);
-
         Select selectMonths = new Select(Driver.getDriver().findElement(By.id("months")));
         selectMonths.selectByIndex(random.nextInt(1,12));
-        BrowserUtils.waitFor(2);
 
         Select selectYears = new Select(Driver.getDriver().findElement(By.id("years")));
         selectYears.selectByIndex(random.nextInt(1,121));
-        BrowserUtils.waitFor(2);
 
         newsletterChkbox.click();
         specialOfferChkbox.click();
@@ -148,7 +143,7 @@ public class SignUpLoginPage extends BasePage{
         zipcodeBox.sendKeys(faker.address().zipCode());
 
         mobileNumberBox.sendKeys(faker.phoneNumber().phoneNumber());
-        this.createAccountBtn.click();
+        createAccountBtn.click();
 
     }
 

@@ -21,7 +21,7 @@ public class SignUpLogin_Stepdefs {
 
     @When("I click on SignupLogin button")
     public void iClickOnSignupLoginButton() {
-        signUpLoginPage.loginBtn.click();
+        signUpLoginPage.signUpBtn.click();
     }
 
     @And("I see New User Signup page")
@@ -36,7 +36,7 @@ public class SignUpLogin_Stepdefs {
 
     @And("I enter email address into the email field")
     public void iEnterEmailAddressIntoTheEmailField() {
-        signUpLoginPage.signUpEmailBtn.sendKeys(ConfigurationReader.getProperty("email"));
+        signUpLoginPage.signUpEmailBtn.sendKeys(ConfigurationReader.getProperty("testEmail"));
     }
 
     @And("I click on Signup button")

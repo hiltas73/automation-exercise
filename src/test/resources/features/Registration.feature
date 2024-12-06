@@ -1,5 +1,5 @@
 Feature: Register User
-@wip
+
   Scenario: Register User with valid credentials (Happy Path Scenario)
     Given I am on the homepage
     When I click on SignupLogin button

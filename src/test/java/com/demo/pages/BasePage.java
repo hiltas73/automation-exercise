@@ -19,5 +19,8 @@ public abstract class BasePage {
         Driver.getDriver().findElement(By.xpath("//button[text()='" + buttonName + "']")).click();
     }
 
+    public void clickOnBaseMenuTabs(String tabName){
+        Driver.getDriver().findElement(By.xpath("//a[text()=' " + tabName + "']")).click();
+    }
 
 }

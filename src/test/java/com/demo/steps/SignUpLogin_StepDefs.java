@@ -10,7 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class SignUpLogin_Stepdefs {
+public class SignUpLogin_StepDefs {
 
     SignUpLoginPage signUpLoginPage = new SignUpLoginPage();
 

@@ -1,6 +1,5 @@
 package com.demo.pages;
 
-import com.demo.utilities.BrowserUtils;
 import com.demo.utilities.Driver;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
@@ -114,13 +113,13 @@ public class SignUpLoginPage extends BasePage{
         passwordBtn.sendKeys(faker.internet().password());
 
         Select selectDays = new Select(Driver.getDriver().findElement(By.id("days")));
-        selectDays.selectByIndex(random.nextInt(1,31));
+        selectDays.selectByIndex(random.nextInt(31));
 
         Select selectMonths = new Select(Driver.getDriver().findElement(By.id("months")));
-        selectMonths.selectByIndex(random.nextInt(1,12));
+        selectMonths.selectByIndex(random.nextInt(12));
 
         Select selectYears = new Select(Driver.getDriver().findElement(By.id("years")));
-        selectYears.selectByIndex(random.nextInt(1,121));
+        selectYears.selectByIndex(random.nextInt(121));
 
         newsletterChkbox.click();
         specialOfferChkbox.click();

@@ -7,7 +7,7 @@ Feature: Login to app
     And user click on the "Login" button
     Then user should be redirected to the home page
 
-  @wip
+
   Scenario Outline: Login with invalid email and password
     Given user is on the login page
     When user fill in "<invalid_email>" as email

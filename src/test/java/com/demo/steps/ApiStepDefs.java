@@ -16,13 +16,22 @@ public class ApiStepDefs {
 
     Response response;
 
+    @When("send GET request to {string} endpoint")
+    public void send_get_request_to_endpoint(String endPoint) {
+        response = given()
+                .when().get(ConfigurationReader.getProperty("base_url") + endPoint)
+                .then().extract().response();
+
+        //response.prettyPrint();
+    }
+
     @When("send GET request to API")
     public void sendGETRequestToAPI() {
         response = given()
                 .when().get(ConfigurationReader.getProperty("base_url") + "/productsList")
                 .then().extract().response();
 
-        response.prettyPrint();
+        //response.prettyPrint();
     }
 
     @Then("status-code should be {int}")
@@ -62,6 +71,13 @@ public class ApiStepDefs {
         String message = response.jsonPath().get("message");
         System.out.println("message = " + message);
         assertEquals(string,message);
+    }
+
+    @Then("get all brands list")
+    public void get_all_brands_list() {
+        JsonPath jsonPath = response.jsonPath();
+        List<Object> brandsList = response.jsonPath().getList("brands.brand");
+        System.out.println("brandsList = " + brandsList);
     }
 
 }

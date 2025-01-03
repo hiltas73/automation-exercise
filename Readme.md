@@ -605,7 +605,7 @@ A tag expression is a boolean expression. Below are some examples:
 | `@ui or @database`    | Scenarios tagged with either `@ui` or `@database` |
 
 
-## Creating CukesRunner
+## Creating TestRunner
 We have been running the feature directly from the feature file.
 While it is convenient to get started,
 It will limit ability to have more granular control over what we want to run and how.

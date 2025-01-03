@@ -15,7 +15,8 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/demo/steps",
         dryRun = false,
-        tags = "@wip"
+        tags = "@ui",
+        publish = true //generating a report with public link
 )
 public class Runner {
 }

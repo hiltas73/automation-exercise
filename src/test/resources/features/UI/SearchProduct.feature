@@ -1,5 +1,5 @@
 Feature: Search Product
-  @wip
+
   Scenario: Verify search product page is displayed
     Given I am on the homepage
     When user click on the "Products" page button

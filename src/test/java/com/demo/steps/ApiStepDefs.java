@@ -25,9 +25,9 @@ public class ApiStepDefs {
         response.prettyPrint();
     }
 
-    @Then("status-code should be {string}")
-    public void status_code_should_be(String statusCode) {
-        assertEquals("200", statusCode);
+    @Then("status-code should be {int}")
+    public void status_code_should_be(int statusCode) {
+        assertEquals("Status Code test", statusCode,response.statusCode());
     }
     @Then("get all product list")
     public void get_all_product_list() {
@@ -39,5 +39,29 @@ public class ApiStepDefs {
         }
     }
 
+    @When("send POST request to API")
+    public void send_post_request_to_api() {
+        response = given()
+                .when().post(ConfigurationReader.getProperty("base_url") + "/productsList")
+                .then()
+                .extract().response();
+
+        //response.prettyPrint();
+    }
+
+    @Then("response-code should be {int}")
+    public void response_code_should_be(int code) {
+        int responseCode = response.jsonPath().get("responseCode");
+        System.out.println("responseCode = " + responseCode);
+        System.out.println("code = " + code);
+        assertEquals(code, responseCode);
+    }
+
+    @Then("response message should be {string}")
+    public void response_message_should_be(String string) {
+        String message = response.jsonPath().get("message");
+        System.out.println("message = " + message);
+        assertEquals(string,message);
+    }
 
 }

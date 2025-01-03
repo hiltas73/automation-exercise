@@ -12,6 +12,7 @@ import org.junit.Assert;
 public class Login_StepDefs {
 
     LoginPage loginPage = new LoginPage();
+
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("loginUrl"));
